@@ -25,7 +25,7 @@ export class ApiStack extends Stack {
             description: 'A simple example includes a HTTP get method to get all items from a DynamoDB table.',
             handler: 'src/handlers/get-all-items.getAllItemsHandler',
             runtime: lambda.Runtime.NODEJS_10_X,
-            code: lambda.Code.fromAsset(path.resolve(__dirname, '../../sample-app')),
+            code: lambda.Code.fromAsset(path.resolve(__dirname, '../sample-app')),
             environment,
             timeout: Duration.seconds(60),
             
@@ -38,7 +38,7 @@ export class ApiStack extends Stack {
             description: 'A simple example includes a HTTP get method to get one item by id from a DynamoDB table.',
             handler: 'src/handlers/get-by-id.getByIdHandler',
             runtime: lambda.Runtime.NODEJS_10_X,
-            code: lambda.Code.fromAsset(path.resolve(__dirname, '../../sample-app')),
+            code: lambda.Code.fromAsset(path.resolve(__dirname, '../sample-app')),
             timeout: Duration.seconds(60),
             environment,
         });
@@ -50,7 +50,7 @@ export class ApiStack extends Stack {
             description: 'A simple example includes a HTTP post method to add one item to a DynamoDB table.',
             handler: 'src/handlers/put-item.putItemHandler',
             runtime: lambda.Runtime.NODEJS_10_X,
-            code: lambda.Code.fromAsset(path.resolve(__dirname, '../../sample-app')),
+            code: lambda.Code.fromAsset(path.resolve(__dirname, '../sample-app')),
             timeout: Duration.seconds(60),
             environment,
         });
