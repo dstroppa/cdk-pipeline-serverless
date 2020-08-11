@@ -2,6 +2,7 @@ import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as codepipeline_actions from '@aws-cdk/aws-codepipeline-actions';
 import { Construct, SecretValue, Stack, StackProps } from '@aws-cdk/core';
 import { CdkPipeline, SimpleSynthAction } from "@aws-cdk/pipelines";
+import { ServerlessApiStage } from './serverless-api-stage';
 
 //The stack that defines the application pipeline
 export class PipelineStack extends Stack {
@@ -36,6 +37,8 @@ export class PipelineStack extends Stack {
         });
 
         // This is where we add the application stages
-        // ...
+        pipeline.addApplicationStage(new ServerlessApiStage(this, 'PreProd', {
+            env: { account: '560846014933', region: 'eu-west-1' }
+        }));
     }
 }
